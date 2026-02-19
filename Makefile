@@ -17,7 +17,7 @@ all: $(TARGET)
 
 # The % command matches all file names of the o files to the file names of the .cpp files. 
 # This command should only be run if the dependants of all change
-# The $< selects all prereqs and the $@ selects all targets. 
+# The $< selects all prereq and the $@ selects all targets. 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c $< -o $@
 
