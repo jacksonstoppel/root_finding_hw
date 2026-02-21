@@ -1,23 +1,17 @@
-#ifndef ROOT_FINDER_H
-#define ROOT_FINDER_H
-#include <iostream>
-#include <functional>
+#pragma once
 
+#include <functional>
+#include <utility>  // std::pair
+#include <vector>   // std::vector
 
 class root_finder {
-    
-    public:
+public:
+    std::function<double(double)> func;
+    std::function<double(double)> func_derivative;
 
-        std::function<double()> func;
+    double find_error(double x_old, double x_new);
 
-        std::function<double()> func_derivative;
+    std::pair<double, std::vector<double> >
+    bisection_method(double initial_x1, double initial_x2, double proj_err);
 
-        std::pair<double, std::vector<double>> root_finder::bisection_method(double initial_x1, double initial_x2, double proj_err, double (*func)(double x_val));
-
-        std::pair<double, std::vector<double>> root_finder::newton_raphson(double x_1, double (*func)(double x_val), double (*func_derivative)(double x_val), double proj_err);
-
-        double root_finder::find_error(double x_old, double x_new);
-
-};
-
-#endif
+    std::pair<double, std::vector<doubl
